@@ -15,4 +15,15 @@ class Market
       vendor.name
     end
   end
+
+  def vendors_that_sell(item)
+    vendors_array = []
+    @vendors.each do |vendor|
+      if vendor.inventory.keys.include?(item)
+        vendors_array << vendor
+      end
+    end
+    vendors_array
+  end
+
 end
