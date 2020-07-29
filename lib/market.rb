@@ -26,4 +26,7 @@ class Market
     vendors_array
   end
 
+  def potential_revenue
+    
+
 end
