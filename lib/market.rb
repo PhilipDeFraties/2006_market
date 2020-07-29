@@ -1,3 +1,4 @@
+require 'pry'
 class Market
   attr_reader :name,
               :vendors
@@ -26,7 +27,20 @@ class Market
     vendors_array
   end
 
-  def potential_revenue
-    
+  def total_inventory
+    total_inventory_hash = {}
+    total_inventory_hash_final = {}
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item, quantity|
+        if total_inventory_hash[item]
+          total_inventory_hash[item] += quantity
+        else
+          total_inventory_hash[item] = quantity
+        end
+      end
+    end
+    h = Hash.new {|item, quantity, vendor| item[quantity] = total_inventory_hash.value, item[vendor] = total_inventory_hash.item}
+
+  end
 
 end
